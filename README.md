@@ -1,4 +1,4 @@
-# Projeto Gerador de Senhas - Desafio React Native Developer na DIO
+# Projeto Gerador de Senhas - Formação React Native Developer na DIO
 
 ## Sobre o Projeto
 

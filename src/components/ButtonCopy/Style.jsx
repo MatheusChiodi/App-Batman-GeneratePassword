@@ -1,26 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    padding: 50,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
+  copy: {
     width: 300,
     height: 50,
-    backgroundColor: 'white',
+    backgroundColor: '#000',
     borderRadius: 10,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingLeft: 20,
+    justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
     margin: 10,
+    marginTop: 40,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -28,7 +17,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    elevation: 8,
+    elevation: 18,
   },
 });
 

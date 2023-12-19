@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { AntDesign } from '@expo/vector-icons';
-import Clipboard from 'expo-clipboard';
+import * as Clipboard from 'expo-clipboard';
 import Title from '../../components/Title';
 import styles from './Style';
 import BatLogo from '../../components/BatLogo/Index';
 import ButtonGenerate from '../../components/ButtonGenerate/Index';
+import ButtonCopy from '../../components/ButtonCopy/Index';
+import Alert from '../../components/Alert/Index';
 
 export default function Home() {
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('Click to generate');
+  const [alert, setAlert] = useState(false);
 
   const copyToClipboard = () => {
     Clipboard.setStringAsync(password);
+    setAlert(true);
   };
 
   const createPassword = () => {
@@ -29,6 +32,12 @@ export default function Home() {
     setPassword(password);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert(false);
+    }, 2500);
+  }, [alert]);
+
   return (
     <LinearGradient
       colors={['#ffffdd', '#e1d9b4']}
@@ -43,12 +52,9 @@ export default function Home() {
       >
         <Title text={password} textColor="black" />
       </View>
-
       <ButtonGenerate onPress={createPassword} />
-
-      <TouchableOpacity style={styles.copy} onPress={copyToClipboard}>
-        <Title text="Copy" textColor="white" />
-      </TouchableOpacity>
+      <ButtonCopy onPress={copyToClipboard} />
+      {alert && <Alert />}
     </LinearGradient>
   );
 }

@@ -14,6 +14,7 @@ export default function Home() {
   const [alert, setAlert] = useState(false);
 
   const copyToClipboard = () => {
+    if(password === 'Click to generate') return;
     Clipboard.setStringAsync(password);
     setAlert(true);
   };
